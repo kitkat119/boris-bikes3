@@ -7,12 +7,13 @@ describe DockingStation do
   it { should respond_to(:release_bike)}
 
   it "releases a working bike" do
-    bike = subject.release_bike
-    expect(bike.working?).to eq true
+    bike = Bike.new
+    subject.dock(bike)
+    released_bike = subject.release_bike
+    expect(released_bike.working?).to eq true
   end
 
-  describe '#dock' do
-    it { should respond_to(:dock).with(1).argument }
+  it "raises an error when releasing a bike that isn't there" do
+    expect{subject.release_bike}.to raise_error("I do apologise, there are no bikes available")
   end
-
 end
