@@ -4,19 +4,11 @@ class DockingStation
   attr_reader :bike
 
   def release_bike
-    if @bike == nil
-      fail("I do apologise, there are no bikes available")
-    else
-      @bike
-    end
+      @bike == nil ? fail("I do apologise, there are no bikes available") : @bike
   end
 
   def dock bike
-    if @bike != nil
-      fail("I do apologise, this station is full")
-    else
-      @bike = bike
-    end
+      @bike ? fail("I do apologise, this station is full") : @bike = bike
   end
 
 end
