@@ -22,4 +22,14 @@ describe DockingStation do
     p @bikes
     expect{subject.dock(Bike.new)}.to raise_error("I do apologise, this station is full")
   end
+
+  it "allows the user to set the capacity of the docking station" do
+    ds = DockingStation.new(30)
+    expect(ds.capacity).to eq 30
+  end
+
+  it "if the user doesn't specify capacity, it is set as 20" do
+    expect(subject.capacity).to eq 20
+    p subject
+end
 end
