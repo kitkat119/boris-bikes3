@@ -1,14 +1,18 @@
 require_relative 'bike'
 
 class DockingStation
-  attr_reader :bike
+  attr_reader :bikes
+
+  def initialize
+    @bikes = []
+  end
 
   def release_bike
-      @bike == nil ? fail("I do apologise, there are no bikes available") : @bike
+      @bikes == [] ? fail("I do apologise, there are no bikes available") : @bikes
   end
 
   def dock bike
-      @bike ? fail("I do apologise, this station is full") : @bike = bike
+      @bikes != [] ? fail("I do apologise, this station is full") : @bikes = bike
   end
 
 end
