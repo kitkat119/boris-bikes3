@@ -18,6 +18,7 @@ describe DockingStation do
   end
 
   it "raises an error when trying to dock bike at full docking station" do
-    expect{subject.dock(bike)}.to raise_error("I do apologise, this station is full")
+    subject.dock(Bike.new)
+    expect{subject.dock(Bike.new)}.to raise_error("I do apologise, this station is full")
   end
 end
