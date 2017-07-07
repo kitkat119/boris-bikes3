@@ -11,7 +11,7 @@ class DockingStation
   end
 
   def release_bike
-       empty? ? fail("I do apologise, there are no bikes available") : @bikes.shift
+       empty? ? fail("I do apologise, there are no bikes available") : bikes[0].working ? @bikes.shift : "There are no working bikes available"
   end
 
   def dock bike

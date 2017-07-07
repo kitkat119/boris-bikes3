@@ -35,4 +35,9 @@ describe DockingStation do
     broken_bike = subject.dock_broken_bike
     expect(broken_bike.shift.working).to eq false
   end
+
+  it "doesn't release a bike if no docked bikes are working" do
+    subject.dock_broken_bike
+    expect(subject.release_bike).to eq "There are no working bikes available"
+  end
 end
