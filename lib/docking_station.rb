@@ -18,6 +18,11 @@ class DockingStation
       full? ? fail("I do apologise, this station is full") : @bikes << bike
   end
 
+  #Bike is broken method - makes bike.working = false
+  def dock_broken_bike
+      full? ? fail("I do apologise, this station is full") :  @bikes << Bike.new(false)
+  end
+
   private
 
   def full?

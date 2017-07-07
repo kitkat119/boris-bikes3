@@ -19,7 +19,6 @@ describe DockingStation do
 
   it "raises an error when trying to dock bike at full docking station" do
     DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
-    p @bikes
     expect{subject.dock(Bike.new)}.to raise_error("I do apologise, this station is full")
   end
 
@@ -30,6 +29,10 @@ describe DockingStation do
 
   it "if the user doesn't specify capacity, it is set as 20" do
     expect(subject.capacity).to eq 20
-    p subject
-end
+  end
+
+  it "user can report a bike broken when they dock it" do
+    broken_bike = subject.dock_broken_bike
+    expect(broken_bike.shift.working).to eq false
+  end
 end
